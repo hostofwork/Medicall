@@ -26,35 +26,29 @@
       linear-gradient(180deg, var(--bg1), #f7f7fb 60%);
   }
   .container{
-    background:linear-gradient(180deg,var(--card),rgba(255,255,255,0.55));
-    border-radius:18px;
-    padding:40px 30px;
-    box-shadow:0 10px 30px rgba(30,30,60,0.1);
+    background:linear-gradient(180deg,var(--card),rgba(255,255,255,0.9));
+    border-radius:22px;
+    padding:40px 30px 30px 30px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.1);
     width:100%;
     max-width:420px;
-    
+    text-align:center;
+    position:relative;
   }
   .logo{
-    text-align:left;
-    margin-bottom:20px;
+    margin-bottom:60px;
   }
   .logo img{
-    width: 300px;;
-    height: 200px;;
-    display:inline-block;
-    clip-path: inset(0px 0px 30px 130px);
-  }
-  h1{
-    margin:0 0 20px 0;
-    font-size:26px;
-    font-weight:700;
-    color:var(--blue);
-    text-align:center;
+    width:200px;
+    height:auto;
+    display:block;
+    margin:0 auto;
+    filter:drop-shadow(0 4px 6px rgba(0,0,0,0.15));
   }
   form{
     display:flex;
     flex-direction:column;
-    gap:14px;
+    gap:12px;
     text-align:center;
   }
   label{text-align:left;font-size:13px;color:#333}
@@ -63,10 +57,15 @@
     padding:12px 14px;
     border:1px solid rgba(120,120,140,0.15);
     font-size:15px;
+    transition:0.3s;
   }
-  input:focus{outline:none;box-shadow:0 6px 18px rgba(90,100,200,0.06)}
+  input:focus{
+    outline:none;
+    box-shadow:0 0 8px rgba(42,109,223,0.3);
+    border-color:var(--blue);
+  }
   .btn{
-    margin-top:10px;
+    margin-top:8px;
     padding:12px;
     border-radius:12px;
     border:0;
@@ -75,17 +74,35 @@
     background:linear-gradient(90deg,var(--accent),#5dbf82);
     color:white;
     font-size:16px;
+    transition:0.3s;
   }
-  .error{color:#b43636;background:#ffdede;padding:10px;border-radius:10px;font-size:14px;display:none}
-  .success{color:#1b6f36;background:#e6fff0;padding:10px;border-radius:10px;font-size:14px;display:none}
+  .btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px rgba(0,0,0,0.15);
+  }
+  .error{
+    color:#b43636;
+    background:#ffdede;
+    padding:10px;
+    border-radius:10px;
+    font-size:14px;
+    display:none
+  }
+  .success{
+    color:#1b6f36;
+    background:#e6fff0;
+    padding:10px;
+    border-radius:10px;
+    font-size:14px;
+    display:none
+  }
 </style>
 </head>
 <body>
   <div class="container">
     <div class="logo">
-      <img src="logo.png" alt="logo">
+      <img src="https://medicalhomeeg.com/wp-content/uploads/2025/04/WhatsApp_Image_2025-04-09_at_9.11.59_PM-removebg-preview-1-1.png" alt="Medical Home Logo">
     </div>
-    <h1>Medical Home</h1>
     <form id="loginForm" onsubmit="return false;">
       <div>
         <label>Username</label>
@@ -115,7 +132,7 @@ document.getElementById('submit').addEventListener('click', ()=>{
   errBox.style.display="none"; okBox.style.display="none";
   const u = userInput.value.trim();
   const p = passInput.value;
-  if(u==="medicall" && validPasswords.includes(p)){
+  if(u==="medical" && validPasswords.includes(p)){
     okBox.style.display="block";
     setTimeout(()=>{window.location.href="home.html"},800);
   }else{
